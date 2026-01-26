@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Plus, Search, Filter, User, Phone, Mail, FileText, Edit, Trash2, Eye } from 'lucide-react'
+import { Plus, Search, Filter, User, Phone, Mail, FileText, Trash2, Eye } from 'lucide-react'
 import { useDataStore } from '../store/dataStore'
-import { format } from 'date-fns'
-import ptBR from 'date-fns/locale/pt-BR'
 
 export default function Pacientes() {
   const { pacientes, deletePaciente } = useDataStore()

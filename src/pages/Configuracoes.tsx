@@ -3,7 +3,6 @@ import {
   Building2,
   Upload,
   Palette,
-  Users,
   Bell,
   Shield,
   Save,

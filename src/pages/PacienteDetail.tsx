@@ -13,7 +13,7 @@ import {
   MessageSquare,
   Download,
 } from 'lucide-react'
-import { useDataStore, Paciente } from '../store/dataStore'
+import { useDataStore } from '../store/dataStore'
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 

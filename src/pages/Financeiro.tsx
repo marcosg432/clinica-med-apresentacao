@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, Download, TrendingUp, TrendingDown, Filter } from 'lucide-react'
+import { Plus, Download, TrendingUp, TrendingDown } from 'lucide-react'
 import { useDataStore } from '../store/dataStore'
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Calendar, Calendar as CalendarIcon, Plus, Search } from 'lucide-react'
+import { Plus, Search } from 'lucide-react'
 import { useDataStore } from '../store/dataStore'
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
@@ -13,7 +13,7 @@ moment.locale('pt-br')
 const localizer = momentLocalizer(moment)
 
 export default function Agenda() {
-  const { consultas, pacientes, profissionais, updateConsulta, deleteConsulta } = useDataStore()
+  const { consultas, updateConsulta } = useDataStore()
   const [view, setView] = useState<View>('month')
   const [date, setDate] = useState(new Date())
   const [searchTerm, setSearchTerm] = useState('')

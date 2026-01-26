@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { ArrowRight, ArrowLeft, Calendar, Clock, User, DollarSign, CheckCircle, Tag } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Calendar, User, DollarSign, CheckCircle, Tag } from 'lucide-react'
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { criarAgendamento } from '../../services/api'
