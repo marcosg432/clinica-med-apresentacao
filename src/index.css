@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-white text-gray-900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-500 shadow-[0_10px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_50px_rgba(37,99,235,0.4)] transform hover:-translate-y-0.5 hover:scale-[1.02];
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold border-2 border-primary-600/20 hover:bg-primary-50/50 hover:border-primary-600/40 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] transform hover:-translate-y-0.5;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-gray-100/50 p-8 backdrop-blur-sm transition-all duration-500;
+  }
+  
+  .card-glass {
+    @apply bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.12)] border border-white/30 p-8 transition-all duration-500;
+  }
+  
+  .input-field {
+    @apply w-full px-6 py-4 border-2 border-gray-200/80 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all duration-300 text-gray-900 placeholder-gray-400/60 bg-white/50 backdrop-blur-sm;
+  }
+  
+  .section-padding {
+    @apply py-24 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-50/80 via-white to-blue-50/60;
+  }
+  
+  .gradient-overlay {
+    @apply bg-gradient-to-b from-black/70 via-black/50 to-black/70;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)];
+  }
+  
+  .image-medical-filter {
+    filter: brightness(1.05) contrast(1.1) saturate(0.9);
+  }
+  
+  .text-shadow-soft {
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #2563eb);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #1d4ed8);
+}
+
+/* Premium Admin Panel Styles */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Premium Card Styles */
+.card-premium {
+  @apply bg-white rounded-3xl shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] border border-gray-100/50 p-8 backdrop-blur-sm transition-all duration-300;
+}
+
+.card-premium-hover {
+  @apply hover:shadow-[0_4px_16px_rgba(0,0,0,0.08),0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1;
+}
+
+/* Premium Sidebar */
+.sidebar-premium {
+  @apply bg-white/95 backdrop-blur-xl border-r border-gray-100/50 shadow-[4px_0_24px_rgba(0,0,0,0.04)];
+}
+
+.sidebar-item {
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200;
+}
+
+.sidebar-item-active {
+  @apply bg-gradient-to-r from-primary-50 to-primary-100/50 text-primary-700 font-semibold shadow-sm border border-primary-100/50;
+}
+
+.sidebar-item-inactive {
+  @apply text-gray-600 hover:bg-gray-50/80 hover:text-gray-900;
+}
+
+/* Premium Header */
+.header-premium {
+  @apply bg-white/80 backdrop-blur-xl border-b border-gray-100/50 shadow-[0_2px_8px_rgba(0,0,0,0.04)];
+}
+
+/* Premium Input */
+.input-premium {
+  @apply w-full px-4 py-3 border border-gray-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all duration-200 text-gray-900 placeholder-gray-400/60 bg-white/50 backdrop-blur-sm shadow-sm hover:border-gray-300;
+}
+
+/* Premium Button */
+.btn-premium {
+  @apply px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98];
+}
+
+.btn-premium-primary {
+  @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800;
+}
+
+.btn-premium-secondary {
+  @apply bg-white text-gray-700 border border-gray-200 hover:bg-gray-50;
+}
+
+/* Premium Table */
+.table-premium {
+  @apply w-full;
+}
+
+.table-premium thead {
+  @apply bg-gray-50/50 border-b border-gray-100;
+}
+
+.table-premium th {
+  @apply px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider;
+}
+
+.table-premium tbody tr {
+  @apply border-b border-gray-50 hover:bg-gray-50/50 transition-colors duration-150;
+}
+
+.table-premium td {
+  @apply px-6 py-4 text-sm text-gray-700;
+}
+
+/* Premium Avatar */
+.avatar-premium {
+  @apply w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm shadow-sm border-2 border-white;
+}
+
+/* Premium Badge */
+.badge-premium {
+  @apply px-3 py-1.5 rounded-full text-xs font-semibold;
+}
+
+/* Premium Metric Card */
+.metric-card {
+  @apply card-premium card-premium-hover animate-fade-in-up;
+}
+
+.metric-value {
+  @apply text-4xl font-extrabold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent;
+}
+
+/* Premium Glass Effect */
+.glass-premium {
+  @apply bg-white/90 backdrop-blur-xl border border-white/20;
+}
+
+/* Premium Separator */
+.separator-premium {
+  @apply h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent;
+}
+
+/* Premium Booking Styles */
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+  }
+}
+
+.animate-progress {
+  animation: progressFill 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-checkmark {
+  animation: checkmark 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.booking-card {
+  @apply bg-white rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.1)] border border-gray-100/60 p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-[0_35px_100px_rgba(0,0,0,0.15)];
+}
+
+.booking-card-selected {
+  @apply ring-4 ring-primary-500/30 bg-gradient-to-br from-primary-50/80 via-white to-primary-50/40 shadow-[0_30px_90px_rgba(37,99,235,0.25)] border-primary-300/50;
+}
+
+.time-slot {
+  @apply px-6 py-4 rounded-2xl font-semibold transition-all duration-300 border-2;
+}
+
+.time-slot-available {
+  @apply bg-gradient-to-br from-gray-50 to-white text-gray-700 border-gray-200 hover:border-primary-400 hover:bg-gradient-to-br hover:from-primary-50 hover:to-white hover:text-primary-700 hover:shadow-lg hover:-translate-y-1;
+}
+
+.time-slot-selected {
+  @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white border-primary-600 shadow-[0_10px_30px_rgba(37,99,235,0.4)] scale-105;
+}
+
+.time-slot-disabled {
+  @apply bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed opacity-60;
+}
+
+.date-button {
+  @apply p-4 rounded-2xl font-semibold transition-all duration-300 border-2;
+}
+
+.date-button-today {
+  @apply bg-gradient-to-br from-primary-50 to-primary-100 text-primary-700 border-primary-400 shadow-md;
+}
+
+.date-button-selected {
+  @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white border-primary-600 shadow-[0_8px_25px_rgba(37,99,235,0.35)] scale-105;
+}
+
+.date-button-default {
+  @apply bg-white text-gray-700 border-gray-200 hover:border-primary-300 hover:bg-primary-50/50 hover:shadow-md;
+}
+
+.form-field-container {
+  @apply relative mb-6;
+}
+
+.form-field-icon {
+  @apply absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 transition-colors duration-300;
+}
+
+.form-field-container:focus-within .form-field-icon {
+  @apply text-primary-600;
+}
+
+.form-field-enhanced {
+  @apply w-full pl-14 pr-6 py-5 border-2 border-gray-200/80 rounded-2xl focus:outline-none focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500/50 transition-all duration-300 text-gray-900 placeholder-gray-400/60 bg-white shadow-sm hover:border-gray-300 hover:shadow-md;
+}
+
+.progress-step {
+  @apply w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 shadow-lg;
+}
+
+.progress-step-active {
+  @apply bg-gradient-to-br from-primary-600 to-primary-700 text-white scale-110 shadow-[0_10px_30px_rgba(37,99,235,0.4)];
+}
+
+.progress-step-completed {
+  @apply bg-gradient-to-br from-green-500 to-green-600 text-white;
+}
+
+.progress-step-pending {
+  @apply bg-gray-200 text-gray-500;
+}
+
+.progress-bar-container {
+  @apply h-3 bg-gray-100 rounded-full overflow-hidden shadow-inner;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-gradient-to-r from-primary-600 via-primary-500 to-primary-600 rounded-full transition-all duration-700 ease-out shadow-lg;
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
