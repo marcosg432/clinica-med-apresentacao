@@ -132,63 +132,63 @@ export default function Financeiro() {
         </div>
       </div>
 
-      {/* Cards de Resumo */}
+      {/* Cards de Resumo Premium */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="card">
+        <div className="card-premium">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-600 mb-1">Total de Entradas</p>
-              <p className="text-2xl font-bold text-green-600">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Total de Entradas</p>
+              <p className="text-3xl font-extrabold text-green-600 mb-2">
                 R$ {totalEntradas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className="bg-green-100 p-3 rounded-lg">
-              <TrendingUp className="w-6 h-6 text-green-600" />
+            <div className="bg-gradient-to-br from-green-500 to-green-600 p-4 rounded-2xl shadow-lg">
+              <TrendingUp className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
           </div>
         </div>
 
-        <div className="card">
+        <div className="card-premium">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-600 mb-1">Total de Saídas</p>
-              <p className="text-2xl font-bold text-red-600">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Total de Saídas</p>
+              <p className="text-3xl font-extrabold text-red-600 mb-2">
                 R$ {totalSaidas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className="bg-red-100 p-3 rounded-lg">
-              <TrendingDown className="w-6 h-6 text-red-600" />
+            <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl shadow-lg">
+              <TrendingDown className="w-7 h-7 text-white" strokeWidth={2.5} />
             </div>
           </div>
         </div>
 
-        <div className="card">
+        <div className="card-premium">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-gray-600 mb-1">Saldo Atual</p>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Saldo Atual</p>
               <p
-                className={`text-2xl font-bold ${
+                className={`text-3xl font-extrabold mb-2 ${
                   saldo >= 0 ? 'text-green-600' : 'text-red-600'
                 }`}
               >
                 R$ {saldo.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className={`p-3 rounded-lg ${saldo >= 0 ? 'bg-green-100' : 'bg-red-100'}`}>
+            <div className={`p-4 rounded-2xl shadow-lg ${saldo >= 0 ? 'bg-gradient-to-br from-green-500 to-green-600' : 'bg-gradient-to-br from-red-500 to-red-600'}`}>
               {saldo >= 0 ? (
-                <TrendingUp className="w-6 h-6 text-green-600" />
+                <TrendingUp className="w-7 h-7 text-white" strokeWidth={2.5} />
               ) : (
-                <TrendingDown className="w-6 h-6 text-red-600" />
+                <TrendingDown className="w-7 h-7 text-white" strokeWidth={2.5} />
               )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Gráficos */}
+      {/* Gráficos Premium */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="card-premium">
+          <h3 className="text-xl font-extrabold text-gray-900 mb-6">
             Fluxo de Caixa (Últimos 30 dias)
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -218,8 +218,8 @@ export default function Financeiro() {
           </ResponsiveContainer>
         </div>
 
-        <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="card-premium">
+          <h3 className="text-xl font-extrabold text-gray-900 mb-6">
             Formas de Pagamento
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -237,8 +237,8 @@ export default function Financeiro() {
         </div>
       </div>
 
-      {/* Tabela de Lançamentos */}
-      <div className="card">
+      {/* Tabela de Lançamentos Premium */}
+      <div className="card-premium">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Lançamentos</h3>
           <div className="flex gap-2">
@@ -342,36 +342,38 @@ export default function Financeiro() {
         </div>
       </div>
 
-      {/* Modal de Novo Lançamento */}
+      {/* Modal de Novo Lançamento Premium */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 max-w-md w-full mx-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
+          <div className="card-premium max-w-md w-full mx-4 animate-fade-in-up" style={{
+            boxShadow: '0 25px 80px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+          }}>
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-6">
               Novo Lançamento
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Tipo
                 </label>
-                <select name="tipo" className="input-field" required>
+                <select name="tipo" className="input-premium" required>
                   <option value="entrada">Entrada</option>
                   <option value="saida">Saída</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Descrição
                 </label>
                 <input
                   type="text"
                   name="descricao"
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Valor
                 </label>
                 <input
@@ -379,27 +381,27 @@ export default function Financeiro() {
                   name="valor"
                   step="0.01"
                   min="0"
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Data
                 </label>
                 <input
                   type="date"
                   name="data"
                   defaultValue={format(new Date(), 'yyyy-MM-dd')}
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Forma de Pagamento
                 </label>
-                <select name="formaPagamento" className="input-field" required>
+                <select name="formaPagamento" className="input-premium" required>
                   <option value="pix">PIX</option>
                   <option value="cartao">Cartão</option>
                   <option value="dinheiro">Dinheiro</option>
@@ -407,25 +409,25 @@ export default function Financeiro() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Categoria
                 </label>
                 <input
                   type="text"
                   name="categoria"
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 pt-2">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="flex-1 btn-secondary"
+                  className="flex-1 btn-secondary font-semibold"
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="flex-1 btn-primary">
+                <button type="submit" className="flex-1 btn-primary font-semibold">
                   Salvar
                 </button>
               </div>

@@ -73,14 +73,16 @@ export default function Estoque() {
 
       {/* Alertas de Estoque Baixo */}
       {itensEstoqueBaixo.length > 0 && (
-        <div className="card bg-yellow-50 border-yellow-200">
-          <div className="flex items-center gap-3">
-            <AlertTriangle className="w-6 h-6 text-yellow-600" />
+        <div className="card-premium bg-gradient-to-r from-yellow-50 to-yellow-100 border-2 border-yellow-300">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
+              <AlertTriangle className="w-6 h-6 text-white" strokeWidth={2.5} />
+            </div>
             <div>
-              <h3 className="font-semibold text-yellow-900">
+              <h3 className="font-bold text-yellow-900 text-lg">
                 Atenção: {itensEstoqueBaixo.length} item(ns) com estoque baixo
               </h3>
-              <p className="text-sm text-yellow-700">
+              <p className="text-sm text-yellow-800 font-medium">
                 Alguns itens estão abaixo da quantidade mínima recomendada
               </p>
             </div>
@@ -90,18 +92,18 @@ export default function Estoque() {
 
       <div className="flex items-center gap-4">
         <div className="flex-1 relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 z-10" />
           <input
             type="text"
             placeholder="Buscar por nome ou tipo..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input-field pl-10"
+            className="input-premium pl-12"
           />
         </div>
       </div>
 
-      <div className="card">
+      <div className="card-premium">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -201,9 +203,11 @@ export default function Estoque() {
       </div>
 
       {filteredEstoque.length === 0 && (
-        <div className="card text-center py-12">
-          <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <p className="text-gray-600">
+        <div className="card-premium text-center py-16 animate-fade-in">
+          <div className="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <Package className="w-10 h-10 text-gray-400" strokeWidth={2} />
+          </div>
+          <p className="text-gray-600 text-lg font-medium">
             {searchTerm
               ? 'Nenhum item encontrado com os filtros aplicados.'
               : 'Nenhum item cadastrado ainda.'}
@@ -211,34 +215,36 @@ export default function Estoque() {
         </div>
       )}
 
-      {/* Modal de Cadastro/Edição */}
+      {/* Modal de Cadastro/Edição Premium */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 animate-fade-in">
+          <div className="card-premium max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto animate-fade-in-up" style={{
+            boxShadow: '0 25px 80px rgba(0, 0, 0, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15)',
+          }}>
+            <h3 className="text-2xl font-extrabold text-gray-900 mb-6">
               {editingItem ? 'Editar Item' : 'Novo Item'}
             </h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Nome do Item
                 </label>
                 <input
                   type="text"
                   name="nome"
                   defaultValue={editingItem?.nome || ''}
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Tipo
                 </label>
                 <select
                   name="tipo"
                   defaultValue={editingItem?.tipo || 'insumo'}
-                  className="input-field"
+                  className="input-premium"
                   required
                 >
                   <option value="insumo">Insumo</option>
@@ -247,7 +253,7 @@ export default function Estoque() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
                     Quantidade
                   </label>
                   <input
@@ -256,12 +262,12 @@ export default function Estoque() {
                     min="0"
                     step="0.01"
                     defaultValue={editingItem?.quantidade || 0}
-                    className="input-field"
+                    className="input-premium"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
                     Quantidade Mínima
                   </label>
                   <input
@@ -270,13 +276,13 @@ export default function Estoque() {
                     min="0"
                     step="0.01"
                     defaultValue={editingItem?.quantidadeMinima || 0}
-                    className="input-field"
+                    className="input-premium"
                     required
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Unidade
                 </label>
                 <input
@@ -284,24 +290,24 @@ export default function Estoque() {
                   name="unidade"
                   defaultValue={editingItem?.unidade || ''}
                   placeholder="Ex: un, kg, litro"
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Fornecedor
                 </label>
                 <input
                   type="text"
                   name="fornecedor"
                   defaultValue={editingItem?.fornecedor || ''}
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-700 mb-2">
                   Preço Unitário
                 </label>
                 <input
@@ -310,19 +316,19 @@ export default function Estoque() {
                   min="0"
                   step="0.01"
                   defaultValue={editingItem?.preco || 0}
-                  className="input-field"
+                  className="input-premium"
                   required
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 pt-2">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="flex-1 btn-secondary"
+                  className="flex-1 btn-secondary font-semibold"
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="flex-1 btn-primary">
+                <button type="submit" className="flex-1 btn-primary font-semibold">
                   Salvar
                 </button>
               </div>

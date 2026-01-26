@@ -35,8 +35,8 @@ export default function Configuracoes() {
         </p>
       </div>
 
-      {/* Dados da Clínica */}
-      <div className="card">
+      {/* Dados da Clínica Premium */}
+      <div className="card-premium">
         <div className="flex items-center gap-3 mb-6">
           <Building2 className="w-6 h-6 text-primary-600" />
           <h2 className="text-xl font-semibold text-gray-900">Dados da Clínica</h2>
@@ -73,7 +73,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, nome: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -86,7 +86,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, cnpj: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -99,7 +99,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, telefone: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -112,7 +112,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, email: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -125,7 +125,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, endereco: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -138,7 +138,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, cidade: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -151,7 +151,7 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, estado: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
           <div>
@@ -164,14 +164,14 @@ export default function Configuracoes() {
               onChange={(e) =>
                 setClinicaData({ ...clinicaData, cep: e.target.value })
               }
-              className="input-field"
+              className="input-premium"
             />
           </div>
         </div>
       </div>
 
-      {/* Aparência */}
-      <div className="card">
+      {/* Aparência Premium */}
+      <div className="card-premium">
         <div className="flex items-center gap-3 mb-6">
           <Palette className="w-6 h-6 text-primary-600" />
           <h2 className="text-xl font-semibold text-gray-900">Aparência</h2>
@@ -208,8 +208,8 @@ export default function Configuracoes() {
         </div>
       </div>
 
-      {/* Permissões de Usuário */}
-      <div className="card">
+      {/* Permissões de Usuário Premium */}
+      <div className="card-premium">
         <div className="flex items-center gap-3 mb-6">
           <Shield className="w-6 h-6 text-primary-600" />
           <h2 className="text-xl font-semibold text-gray-900">
@@ -272,8 +272,8 @@ export default function Configuracoes() {
         </div>
       </div>
 
-      {/* Notificações */}
-      <div className="card">
+      {/* Notificações Premium */}
+      <div className="card-premium">
         <div className="flex items-center gap-3 mb-6">
           <Bell className="w-6 h-6 text-primary-600" />
           <h2 className="text-xl font-semibold text-gray-900">Notificações</h2>

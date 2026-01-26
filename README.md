@@ -48,11 +48,11 @@ npm run pm2:restart
 npm run pm2:logs
 ```
 
-## 📖 Documentação
+## 📖 Estrutura do Projeto
 
-- [Documentação Completa](./DOCUMENTACAO_SISTEMA.md)
-- [Guia de Apresentação](./GUIA_APRESENTACAO.md)
-- [Guia de Deploy Hostinger](./DEPLOY_HOSTINGER.md)
+- **Site Público**: Páginas públicas com agendamento online
+- **Painel Administrativo**: Sistema completo de gestão clínica
+- **API Simulada**: Integração entre público e administrativo
 
 ## 🌐 Acessos
 
