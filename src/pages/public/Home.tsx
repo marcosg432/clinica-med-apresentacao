@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Check, ArrowRight, Calendar, Clock, Shield, Heart, Sparkles } from 'lucide-react'
+import ClinicStatsSection from '../../components/ClinicStatsSection'
 
 export default function Home() {
   const beneficios = [
@@ -218,6 +219,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Nossa Clínica em Números */}
+      <ClinicStatsSection />
 
       {/* Como Funciona */}
       <section className="section-padding bg-white relative overflow-hidden">
