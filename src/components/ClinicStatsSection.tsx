@@ -177,36 +177,8 @@ function StatCard({ stat }: StatCardProps) {
 }
 
 export default function ClinicStatsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px',
-      }
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
-    }
-  }, [])
-
   return (
     <section
-      ref={sectionRef}
       className="section-padding bg-gradient-to-br from-gray-50 via-white to-primary-50/30 relative overflow-hidden"
     >
       {/* Decorative Elements Premium */}
