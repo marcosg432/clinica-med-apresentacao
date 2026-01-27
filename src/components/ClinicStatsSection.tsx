@@ -96,11 +96,9 @@ function CountUp({ end, duration = 2000, suffix = '', isVisible }: CountUpProps)
 
 interface StatCardProps {
   stat: StatItem
-  index: number
-  isVisible: boolean
 }
 
-function StatCard({ stat, index, isVisible }: StatCardProps) {
+function StatCard({ stat }: StatCardProps) {
   const Icon = stat.icon
   const cardRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
@@ -233,8 +231,6 @@ export default function ClinicStatsSection() {
             <StatCard
               key={index}
               stat={stat}
-              index={index}
-              isVisible={isVisible}
             />
           ))}
         </div>
