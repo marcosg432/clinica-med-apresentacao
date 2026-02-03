@@ -18,8 +18,9 @@ export const useAuthStore = create<AuthState>((set) => ({
     email: 'admin@clinicamed.com',
     role: 'admin',
   },
-  login: async (email: string, password: string) => {
+  login: async (email: string, _password: string) => {
     // Função mantida para compatibilidade, mas sempre retorna true
+    // _password prefixado com _ para indicar que não é usado (login removido)
     set({
       isAuthenticated: true,
       user: {
