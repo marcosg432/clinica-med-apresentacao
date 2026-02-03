@@ -32,17 +32,17 @@ export default function Profissionais() {
   }
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in">
       {/* Header Premium */}
-      <div className="flex items-center justify-between animate-fade-in-up">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-fade-in-up">
         <div>
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">Profissionais</h1>
-          <p className="text-gray-600 text-lg font-light">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">Profissionais</h1>
+          <p className="text-gray-600 text-base sm:text-lg font-light">
             Gerencie os profissionais da clínica
           </p>
         </div>
-        <button onClick={handleNew} className="btn-premium btn-premium-primary flex items-center gap-2 px-6 py-3">
-          <Plus className="w-5 h-5" strokeWidth={2.5} />
+        <button onClick={handleNew} className="btn-premium btn-premium-primary flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base w-full sm:w-auto">
+          <Plus className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
           Novo Profissional
         </button>
       </div>
@@ -50,43 +50,43 @@ export default function Profissionais() {
       {/* Search Premium */}
       <div className="flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
         <div className="flex-1 relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" strokeWidth={2} />
+          <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" strokeWidth={2} />
           <input
             type="text"
             placeholder="Buscar por nome, especialidade ou CRM..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input-premium pl-12"
+            className="input-premium pl-10 sm:pl-12 text-sm sm:text-base w-full"
           />
         </div>
       </div>
 
       {/* Cards Premium */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filteredProfissionais.map((profissional, index) => (
           <div 
             key={profissional.id} 
             className="card-premium card-premium-hover group animate-fade-in-up"
             style={{ animationDelay: `${index * 0.05}s` }}
           >
-            <div className="flex items-start gap-5 mb-6">
-              <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform duration-200">
-                  <UserCheck className="w-8 h-8 text-white" strokeWidth={2.5} />
+            <div className="flex items-start gap-3 sm:gap-4 lg:gap-5 mb-4 sm:mb-6">
+              <div className="relative flex-shrink-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg border-2 border-white group-hover:scale-110 transition-transform duration-200">
+                  <UserCheck className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" strokeWidth={2.5} />
                 </div>
-                <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-white shadow-sm ${
+                <div className={`absolute -bottom-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 border-white shadow-sm ${
                   profissional.ativo ? 'bg-green-500' : 'bg-gray-400'
                 }`}></div>
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-gray-900 text-lg mb-1 truncate">
+                <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-1 truncate">
                   {profissional.nome}
                 </h3>
                 <p className="text-sm text-primary-600 font-bold mb-2">
                   {profissional.especialidade}
                 </p>
-                <p className="text-xs text-gray-500 mb-3 font-medium">{profissional.crm}</p>
-                <div className="space-y-2 text-sm">
+                <p className="text-xs text-gray-500 mb-2 sm:mb-3 font-medium">{profissional.crm}</p>
+                <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                   <div className="flex items-center gap-2 text-gray-600">
                     <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={2} />
                     <span className="truncate font-medium">{profissional.telefone}</span>

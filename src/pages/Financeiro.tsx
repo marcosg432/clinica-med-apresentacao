@@ -106,79 +106,81 @@ export default function Financeiro() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Financeiro</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Financeiro</h1>
+          <p className="text-gray-600 mt-1 text-sm sm:text-base">
             Controle financeiro e fluxo de caixa
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={handleGerarRelatorio}
-            className="btn-secondary flex items-center gap-2"
+            className="btn-secondary flex items-center justify-center gap-2 text-xs sm:text-sm"
           >
-            <Download className="w-5 h-5" />
-            Gerar Relatório PDF
+            <Download className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">Gerar Relatório PDF</span>
+            <span className="sm:hidden">PDF</span>
           </button>
           <button
             onClick={() => setShowModal(true)}
-            className="btn-primary flex items-center gap-2"
+            className="btn-primary flex items-center justify-center gap-2 text-xs sm:text-sm"
           >
-            <Plus className="w-5 h-5" />
-            Novo Lançamento
+            <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">Novo Lançamento</span>
+            <span className="sm:hidden">Novo</span>
           </button>
         </div>
       </div>
 
       {/* Cards de Resumo Premium */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="card-premium">
-          <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Total de Entradas</p>
-              <p className="text-3xl font-extrabold text-green-600 mb-2">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2 uppercase tracking-wide">Total de Entradas</p>
+              <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-green-600 mb-2 break-words">
                 R$ {totalEntradas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-green-500 to-green-600 p-4 rounded-2xl shadow-lg">
-              <TrendingUp className="w-7 h-7 text-white" strokeWidth={2.5} />
+            <div className="bg-gradient-to-br from-green-500 to-green-600 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg flex-shrink-0">
+              <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" strokeWidth={2.5} />
             </div>
           </div>
         </div>
 
         <div className="card-premium">
-          <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Total de Saídas</p>
-              <p className="text-3xl font-extrabold text-red-600 mb-2">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2 uppercase tracking-wide">Total de Saídas</p>
+              <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-red-600 mb-2 break-words">
                 R$ {totalSaidas.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-red-500 to-red-600 p-4 rounded-2xl shadow-lg">
-              <TrendingDown className="w-7 h-7 text-white" strokeWidth={2.5} />
+            <div className="bg-gradient-to-br from-red-500 to-red-600 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg flex-shrink-0">
+              <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" strokeWidth={2.5} />
             </div>
           </div>
         </div>
 
-        <div className="card-premium">
-          <div className="flex items-center justify-between">
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-gray-500 mb-2 uppercase tracking-wide">Saldo Atual</p>
+        <div className="card-premium sm:col-span-2 lg:col-span-1">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <p className="text-xs sm:text-sm font-semibold text-gray-500 mb-1 sm:mb-2 uppercase tracking-wide">Saldo Atual</p>
               <p
-                className={`text-3xl font-extrabold mb-2 ${
+                className={`text-xl sm:text-2xl lg:text-3xl font-extrabold mb-2 break-words ${
                   saldo >= 0 ? 'text-green-600' : 'text-red-600'
                 }`}
               >
                 R$ {saldo.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
               </p>
             </div>
-            <div className={`p-4 rounded-2xl shadow-lg ${saldo >= 0 ? 'bg-gradient-to-br from-green-500 to-green-600' : 'bg-gradient-to-br from-red-500 to-red-600'}`}>
+            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-lg flex-shrink-0 ${saldo >= 0 ? 'bg-gradient-to-br from-green-500 to-green-600' : 'bg-gradient-to-br from-red-500 to-red-600'}`}>
               {saldo >= 0 ? (
-                <TrendingUp className="w-7 h-7 text-white" strokeWidth={2.5} />
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" strokeWidth={2.5} />
               ) : (
-                <TrendingDown className="w-7 h-7 text-white" strokeWidth={2.5} />
+                <TrendingDown className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" strokeWidth={2.5} />
               )}
             </div>
           </div>

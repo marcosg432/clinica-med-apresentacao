@@ -27,10 +27,10 @@ export default function Configuracoes() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Configurações</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Configurações</h1>
+        <p className="text-gray-600 mt-1 text-sm sm:text-base">
           Gerencie as configurações da clínica e do sistema
         </p>
       </div>
@@ -51,9 +51,10 @@ export default function Configuracoes() {
               <Upload className="w-8 h-8 text-gray-400" />
             </div>
             <div>
-              <button className="btn-secondary flex items-center gap-2">
+              <button className="btn-secondary flex items-center justify-center gap-2 text-xs sm:text-sm w-full sm:w-auto">
                 <Upload className="w-4 h-4" />
-                Upload Logo
+                <span className="hidden sm:inline">Upload Logo</span>
+                <span className="sm:hidden">Upload</span>
               </button>
               <p className="text-xs text-gray-500 mt-1">
                 PNG, JPG até 2MB
@@ -322,9 +323,10 @@ export default function Configuracoes() {
       </div>
 
       <div className="flex justify-end">
-        <button onClick={handleSave} className="btn-primary flex items-center gap-2">
-          <Save className="w-5 h-5" />
-          Salvar Configurações
+        <button onClick={handleSave} className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto text-xs sm:text-sm">
+          <Save className="w-4 h-4 sm:w-5 sm:h-5" />
+          <span className="hidden sm:inline">Salvar Configurações</span>
+          <span className="sm:hidden">Salvar</span>
         </button>
       </div>
     </div>

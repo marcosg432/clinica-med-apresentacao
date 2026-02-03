@@ -69,37 +69,38 @@ export default function Agenda() {
   }
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-fade-in">
       {/* Header Premium */}
-      <div className="flex items-center justify-between animate-fade-in-up">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 animate-fade-in-up">
         <div>
-          <h1 className="text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">Agenda</h1>
-          <p className="text-gray-600 text-lg font-light">Gerencie consultas e agendamentos</p>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">Agenda</h1>
+          <p className="text-gray-600 text-base sm:text-lg font-light">Gerencie consultas e agendamentos</p>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" strokeWidth={2} />
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+          <div className="relative flex-1 sm:flex-none sm:w-64">
+            <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400" strokeWidth={2} />
             <input
               type="text"
               placeholder="Buscar paciente..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="input-premium pl-12"
+              className="input-premium pl-10 sm:pl-12 text-sm sm:text-base w-full"
             />
           </div>
-          <button className="btn-premium btn-premium-primary flex items-center gap-2 px-6 py-3">
-            <Plus className="w-5 h-5" strokeWidth={2.5} />
-            Nova Consulta
+          <button className="btn-premium btn-premium-primary flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base whitespace-nowrap">
+            <Plus className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
+            <span className="hidden sm:inline">Nova Consulta</span>
+            <span className="sm:hidden">Nova</span>
           </button>
         </div>
       </div>
 
       {/* Calendar Premium */}
       <div className="card-premium p-0 overflow-hidden">
-        <div className="p-6 border-b border-gray-100/50 bg-gradient-to-r from-gray-50 to-white flex items-center gap-3">
+        <div className="p-3 sm:p-4 lg:p-6 border-b border-gray-100/50 bg-gradient-to-r from-gray-50 to-white flex items-center gap-2 sm:gap-3 overflow-x-auto">
           <button
             onClick={() => setView('month')}
-            className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-200 ${
+            className={`px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 whitespace-nowrap ${
               view === 'month'
                 ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md shadow-primary-500/20'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
@@ -109,7 +110,7 @@ export default function Agenda() {
           </button>
           <button
             onClick={() => setView('week')}
-            className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-200 ${
+            className={`px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 whitespace-nowrap ${
               view === 'week'
                 ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md shadow-primary-500/20'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
@@ -119,7 +120,7 @@ export default function Agenda() {
           </button>
           <button
             onClick={() => setView('day')}
-            className={`px-5 py-2.5 rounded-xl font-semibold transition-all duration-200 ${
+            className={`px-3 sm:px-4 lg:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl font-semibold text-xs sm:text-sm transition-all duration-200 whitespace-nowrap ${
               view === 'day'
                 ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-md shadow-primary-500/20'
                 : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
@@ -128,27 +129,29 @@ export default function Agenda() {
             Diária
           </button>
         </div>
-        <div style={{ height: '600px' }}>
-          <BigCalendar
-            localizer={localizer}
-            events={filteredEvents}
-            startAccessor="start"
-            endAccessor="end"
-            view={view}
-            onView={setView}
-            date={date}
-            onNavigate={setDate}
-            onSelectEvent={handleSelectEvent}
-            eventPropGetter={eventStyleGetter}
-            messages={{
-              next: 'Próximo',
-              previous: 'Anterior',
-              today: 'Hoje',
-              month: 'Mês',
-              week: 'Semana',
-              day: 'Dia',
-            }}
-          />
+        <div className="overflow-x-auto">
+          <div style={{ height: '400px', minWidth: '600px' }} className="sm:h-[500px] lg:h-[600px]">
+            <BigCalendar
+              localizer={localizer}
+              events={filteredEvents}
+              startAccessor="start"
+              endAccessor="end"
+              view={view}
+              onView={setView}
+              date={date}
+              onNavigate={setDate}
+              onSelectEvent={handleSelectEvent}
+              eventPropGetter={eventStyleGetter}
+              messages={{
+                next: 'Próximo',
+                previous: 'Anterior',
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana',
+                day: 'Dia',
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -191,20 +194,20 @@ export default function Agenda() {
                 </span>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               {selectedEvent.status === 'agendada' && (
-                <button onClick={handleConfirm} className="flex-1 btn-premium btn-premium-primary">
+                <button onClick={handleConfirm} className="flex-1 btn-premium btn-premium-primary text-sm sm:text-base py-2.5 sm:py-3">
                   Confirmar
                 </button>
               )}
               {selectedEvent.status !== 'cancelada' && (
-                <button onClick={handleCancel} className="flex-1 btn-premium btn-premium-secondary">
+                <button onClick={handleCancel} className="flex-1 btn-premium btn-premium-secondary text-sm sm:text-base py-2.5 sm:py-3">
                   Cancelar
                 </button>
               )}
               <button
                 onClick={() => setShowModal(false)}
-                className="flex-1 btn-premium btn-premium-secondary"
+                className="flex-1 btn-premium btn-premium-secondary text-sm sm:text-base py-2.5 sm:py-3"
               >
                 Fechar
               </button>
