@@ -1,16 +1,14 @@
 import { useState } from 'react'
 import { Bell, Search, LogOut, ChevronDown } from 'lucide-react'
 import { useAuthStore } from '../../store/authStore'
-import { useNavigate } from 'react-router-dom'
 
 export default function Header() {
-  const { logout, user } = useAuthStore()
-  const navigate = useNavigate()
+  const { user } = useAuthStore()
   const [showUserMenu, setShowUserMenu] = useState(false)
 
   const handleLogout = () => {
-    logout()
-    navigate('/login')
+    // Logout desabilitado - sempre permanece autenticado
+    setShowUserMenu(false)
   }
 
   return (

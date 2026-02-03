@@ -12,27 +12,38 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-  isAuthenticated: false,
-  user: null,
+  isAuthenticated: true, // Sempre autenticado - login removido
+  user: {
+    name: 'Dr. João Silva',
+    email: 'admin@clinicamed.com',
+    role: 'admin',
+  },
   login: async (email: string, password: string) => {
-    // Simulação de autenticação
-    if (email && password) {
-      set({
-        isAuthenticated: true,
-        user: {
-          name: 'Dr. João Silva',
-          email: email,
-          role: 'admin',
-        },
-      })
-      return true
-    }
-    return false
+    // Função mantida para compatibilidade, mas sempre retorna true
+    set({
+      isAuthenticated: true,
+      user: {
+        name: 'Dr. João Silva',
+        email: email || 'admin@clinicamed.com',
+        role: 'admin',
+      },
+    })
+    return true
   },
   logout: () => {
-    set({ isAuthenticated: false, user: null })
+    // Logout não faz nada - sempre permanece autenticado
+    set({ 
+      isAuthenticated: true, 
+      user: {
+        name: 'Dr. João Silva',
+        email: 'admin@clinicamed.com',
+        role: 'admin',
+      }
+    })
   },
 }))
+
+
 
 
 

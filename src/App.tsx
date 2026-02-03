@@ -1,6 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useAuthStore } from './store/authStore'
-import Login from './pages/Login'
 import DashboardLayout from './components/layout/DashboardLayout'
 import Dashboard from './pages/Dashboard'
 import Agenda from './pages/Agenda'
@@ -23,8 +21,8 @@ import Confirmacao from './pages/agendamento/Confirmacao'
 import Sucesso from './pages/agendamento/Sucesso'
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated } = useAuthStore()
-  return isAuthenticated ? <>{children}</> : <Navigate to="/admin/login" />
+  // Sempre permite acesso - login removido
+  return <>{children}</>
 }
 
 function App() {
@@ -50,7 +48,7 @@ function App() {
         </Route>
 
         {/* Rotas Administrativas */}
-        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/login" element={<Navigate to="/admin/dashboard" replace />} />
         <Route
           path="/admin"
           element={
@@ -71,7 +69,7 @@ function App() {
         </Route>
 
         {/* Redirecionamento antigo /login */}
-        <Route path="/login" element={<Navigate to="/admin/login" replace />} />
+        <Route path="/login" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>
     </BrowserRouter>
   )
